@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <title>tab.xlsx → HTML</title>
+    <style>
+      body {
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial,
+          sans-serif;
+        padding: 24px;
+      }
+      table {
+        border-collapse: collapse;
+        min-width: 920px;
+      }
+      th,
+      td {
+        border: 1px solid #cfd8dc;
+        padding: 10px 14px;
+        text-align: left;
+      }
+      td:not(:empty) {
+        border: 2px solid #000; /* pogrubione krawędzie dla niepustych komórek */
+      }
+      td:empty {
+        border: 1px solid #cfd8dc;
+      }
+      thead th {
+        background: #55b7ff;
+        border: 2px solid #000;
+        color: #000;
+        font-weight: 700;
+      }
+      thead th:first-child {
+        width: 200px;
+      }
+      .center {
+        text-align: center;
+      }
+      .left {
+        text-align: left;
+      }
+      .right {
+        text-align: right;
+      }
+      .bold {
+        font-weight: 700;
+      }
+      .mono {
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th class="center">PRIO1</th>
+          <th class="center">PRIO2</th>
+          <th class="center">PRIO3</th>
+          <th class="center">PRIO4</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="left">CEL</td>
+          <td class="right">85%</td>
+          <td class="right">95%</td>
+          <td class="right">95%</td>
+          <td class="left">-</td>
+        </tr>
+        <tr>
+          <td class="left">TERMIN</td>
+          <td colspan="4" class="center">do końca miesiąca</td>
+        </tr>
+        <tr>
+          <td class="left">AMNKIETA</td>
+          <td class="left">tak</td>
+          <td class="left">tak</td>
+          <td class="left">tak</td>
+          <td class="left">nie</td>
+        </tr>
+        <tr>
+          <td class="left">NARZĘDZIA</td>
+          <td class="left">-</td>
+          <td class="center mono bold" colspan="2">V5M</td>
+          <td class="right mono bold">V5O</td>
+        </tr>
+        <tr>
+          <td class="left">PROWIZJA</td>
+          <td class="left">-</td>
+          <td class="left">MAX</td>
+          <td class="left">MAX</td>
+          <td class="left">MAX</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+ZADANIA
+1. Wybierz z tabeli test_baza1 NUMBERY z END_DT większą od dziś oraz mniejszą niż 90 dni od dziś oraz z SEGMENTEM 
+small i soho. Do tych danych dopisz rekomendacje ofertowe (PLAN) z tabeli test_baza2.
+Jeżeli w drugiej tabeli nie ma rekomendacji to przypisz S dla soho oraz M dla small. 
+Wyniki zapisz do tabeli tmp.
+
+2. Podsumuj wyniki z tabeli tmp - liczba rekomendacji per PLAN.
+Wyniki posortuj po rekomendacji zgodnie z kolejnością S, M, L, X.
+
+3. Utwórz rekomendację per ID. Dla każdego ID z tabeli test_baza2 wybierz taką rekomendację, 
+która na danym ID występuje najczęściej. W przypadku dopasowania kilku rekomendacji o tej samej 
+liczności - wybierz wyższą (S<M<L<X). Przykładowo jeśli dla ID=1 mamy dwie rekomendacje M, dwie rekomendacje S oraz jedną rekomendację X - wybierz M.
+
+4. Dla każdego id wypisz listę rekomendacji w nowej kolumnie w formacie "plan: number, number, plan: number, number"
+np. M: 577290614, 581909797, 593369145, S: 512000217, 524579635, 546508046, 577773401, X: 553705869.
+
+Rozwiązania zapisz w postaci gotowego kodu SAS 4GL lub SQL.
+
+5. Zapisz tabelę z pliku tab.xlsx w kodzie html.
