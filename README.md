@@ -58,6 +58,7 @@ ORDER BY ordinal_position;
 ```
 ![schemat](images/typy_koloumn_tb1.png)
 
+
 ```sql
 SELECT 
     column_name,
@@ -69,6 +70,7 @@ ORDER BY ordinal_position;
 
 ![schemat](images/typy_kolumn_tb2.png)
 
+
 ```sql
 select *
 from public.test_baza1 tb1
@@ -76,6 +78,7 @@ WHERE NULLIF(TRIM("NUMBER"), '') IS NOT NULL
 limit 10;
 ```
 ![schemat](images/eksploracja_tb1.png)
+
 
 ```sql
 select *
@@ -85,12 +88,13 @@ limit 10;
 
 ![schemat](images/eksploracja_tb2.png)
 
-**Komentarz**
+
+**Komentarz:**
 Zidentyfikowane różnice typów między tabelami ('varchcar', 'int'), co wymaga ujednolicenia w warstwie staging
 
 ---
 
-### Tworzenie warstwy staging
+## Tworzenie warstwy staging
 
 
 ```sql
@@ -117,12 +121,13 @@ create or replace view public.stg_test_baza2 as
 
 ![schemat](images/stg_test_baza2.png)
 
-**Komentarz**
+
+**Komentarz:**
 Dane zostały oczyszczone, przekształcone i przygotowane do dalszych analiz. Został stworzony nowy widok, aby zachować spójność danych i łatwość analiz.
 
 ---
 
-### Zadanie 1
+## Zadanie 1
 
 **Cel:** Wybór aktywnych usług w segmentach small i soho.
 **Wynik:** tabela tmp.
@@ -152,9 +157,10 @@ where
 
 ![schemat](images/table_temp.png)
 
+
 ---
 
-### Zadanie 2
+## Zadanie 2
 
 **Cel:** Podsumowanie liczby rekomendacji per plan (S, M, L, X) w odpowiedniej kolejności.
 
@@ -184,9 +190,10 @@ order by
 
 ![schemat](images/zadanie_2.png)
 
+
 ---
 
-### Zadanie 3
+## Zadanie 3
 
 **Cel:** Określenie najczęściej występującej rekomendacji per ID, z priorytetem S < M < L < X
 
@@ -233,9 +240,10 @@ order by id;
 
 ![schemat](images/zadanie_3.png)
 
+
 ---
 
-### Zadanie 4
+## Zadanie 4
 
 **Cel:** agregacja numerów per ID w formacie:
 S: 5120000217, 546508046 | m: 577290614, 58172979 | X: 553705789
@@ -275,7 +283,9 @@ ORDER BY id;
 
 ![schemat](images/zadanie_4.png)
 
-### Zadanie 5 - stworzenie pliku html
+---
+
+## Zadanie 5 - stworzenie pliku html
 
 **Cel:** Stworzenie takiego samego widoku tabeli xlsx, w pliku html.
 
