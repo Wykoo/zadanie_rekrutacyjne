@@ -312,10 +312,11 @@ ORDER BY id;
 ---
 
 ## Autor
+```
 Mateusz Wykowski
 17.10.2025
 https://github.com/Wykoo/zadanie_rekrutacyjne
-
+```
 
 
 
