@@ -299,7 +299,7 @@ FROM agg
 ORDER BY id;
 ```
 
-![schemat](./images/zadanie_4.png)
+![Wynik zadania 4](./images/zadanie_4.png)
 
 ---
 
