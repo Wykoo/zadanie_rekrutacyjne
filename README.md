@@ -1,4 +1,4 @@
-# Zadanie rekrutacyjne - SQL (Mateusz Wykowski)
+n w # Zadanie rekrutacyjne - SQL (Mateusz Wykowski)
 
 ## Cel projektu
 Celem projektu było przygotowanie czystych i spójnych danych oraz realizacja zadań rekrutacyjnych na dwóch tabelach ('test_baza1', 'test_baza2')
@@ -299,7 +299,7 @@ FROM agg
 ORDER BY id;
 ```
 
-![schemat](images/zadanie_4.png)
+![schemat](./images/zadanie_4.png)
 
 ---
 
