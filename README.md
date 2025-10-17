@@ -45,7 +45,9 @@ zadanie_rekrutacyjne/
 
 ## Etap analizy
 
-### Sprawdzanie struktur i typów danych
+### W tym etapie sprawdzono strukturę oraz typy danych w tabelach źródłowych, 
+### aby zidentyfikować potencjalne niespójności (np. różne typy kolumn o tej samej nazwie).  
+### Na tej podstawie zaplanowano późniejsze ujednolicenie danych w warstwie **staging**.
 
 
 ```sql
@@ -95,6 +97,10 @@ Zidentyfikowane różnice typów między tabelami ('varchcar', 'int'), co wymaga
 ---
 
 ## Tworzenie warstwy staging
+
+### W warstwie staging ujednolicono typy i formaty danych z tabel źródłowych, 
+### oczyszczając kolumny z błędnych wartości i różnic w nazwach. 
+### Dzięki temu dalsze zapytania mogły działać na spójnych, standaryzowanych danych.
 
 
 ```sql
@@ -290,6 +296,13 @@ ORDER BY id;
 **Cel:** Stworzenie takiego samego widoku tabeli xlsx, w pliku html.
 
 ![schemat](images/widok_html.png)
+
+---
+
+## Autor
+Mateusz Wykowski
+17.10.2025
+https://github.com/Wykoo/zadanie_rekrutacyjne
 
 
 
