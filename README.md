@@ -1,4 +1,4 @@
-n w # Zadanie rekrutacyjne - SQL (Mateusz Wykowski)
+# Zadanie rekrutacyjne - SQL (Mateusz Wykowski)
 
 ## Cel projektu
 Celem projektu było przygotowanie czystych i spójnych danych oraz realizacja zadań rekrutacyjnych na dwóch tabelach ('test_baza1', 'test_baza2')
