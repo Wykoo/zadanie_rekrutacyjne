@@ -59,7 +59,7 @@ WHERE table_name ='test_baza1'
 ORDER BY ordinal_position;
 ```
 
-**Wynik**
+
 ![schemat](images/typy_koloumn_tb1.png)
 
 **SQL:**
@@ -72,7 +72,6 @@ WHERE table_name ='test_baza2'
 ORDER BY ordinal_position;
 ```
 
-**Wynik:**
 ![schemat](images/typy_kolumn_tb2.png)
 
 **SQL:**
@@ -83,7 +82,7 @@ WHERE NULLIF(TRIM("NUMBER"), '') IS NOT NULL
 limit 10;
 ```
 
-**Wynik:**
+
 ![schemat](images/eksploracja_tb1.png)
 
 **SQL:**
@@ -93,7 +92,7 @@ from public.test_baza2 tb2
 limit 10;
 ```
 
-**Wynik:**
+
 ![schemat](images/eksploracja_tb2.png)
 
 
@@ -120,7 +119,7 @@ create or replace view public.stg_test_baza1 as
 	from public.test_baza1;
 ```
 
-**Wynik:**
+
 ![schemat](images/stg_test_baza1.png)
 
 **SQL:**
@@ -133,7 +132,7 @@ create or replace view public.stg_test_baza2 as
 	from public.test_baza2;
 ```
 
-**Wynik:**
+
 ![schemat](images/stg_test_baza2.png)
 
 
@@ -170,7 +169,7 @@ where
 	and stb1.segment IN ('small', 'soho');
 ```
 
-**Wynik:**
+
 ![schemat](images/table_temp.png)
 
 
@@ -205,7 +204,7 @@ order by
 	end;
 ```
 
-**Wynik:**
+
 ![schemat](images/zadanie_2.png)
 
 
@@ -256,7 +255,7 @@ where ranking=1
 order by id;
 ```
 
-**Wynik:**
+
 ![schemat](images/zadanie_3.png)
 
 
@@ -300,7 +299,6 @@ FROM agg
 ORDER BY id;
 ```
 
-**Wynik:**
 ![schemat](images/zadanie_4.png)
 
 ---
