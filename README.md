@@ -6,14 +6,19 @@ W projekcie pokazano cały proces począwszy od analizy i czyszczeniu, aż po tw
 
 ---
 
-## Struktura repozytorium
-├── Data/                         # dane wejściowe│   ├── TEST_BAZA1.csv
+zadanie_rekrutacyjne/
+│
+├── Data/                      # Dane wejściowe
+│   ├── TEST_BAZA1.csv
 │   └── TEST_BAZA2.csv
-├── SQL/                          
-│   └── Zapytania_sql.sql         # Zapytania SQL + komentarze
-├── html/
-│   └── tab.html                  
-├── images/                       # zrzuty ekranu z wyników
+│
+├── SQL/                       # Zapytania SQL + komentarze
+│   └── Zapytania_sql.sql
+│
+├── html/                      # Wyniki zapisane do HTML
+│   └── tab.html
+│
+├── images/                    # Zrzuty ekranu z wyników
 │   ├── typy_kolumn_tb1.png
 │   ├── typy_kolumn_tb2.png
 │   ├── eksploracja_tb1.png
@@ -23,11 +28,15 @@ W projekcie pokazano cały proces począwszy od analizy i czyszczeniu, aż po tw
 │   ├── table_temp.png
 │   ├── zadanie_2.png
 │   ├── zadanie_3.png
-│   └── zadanie_4.png
-├── zadania/
-│   ├── TAB.xlsl
-│   └── zadania.txt 
-└── README.md
+│   ├── zadanie_4.png
+│   └── tabela_prio.png
+│
+├── zadania/                   # Pliki pomocnicze
+│   ├── TAB.xlsx
+│   └── zadania.txt
+│
+└── README.md                  # Dokumentacja projektu
+
 ---
 
 ## Etap analizy
@@ -254,6 +263,8 @@ ORDER BY id;
 ### Zadanie 5 - stworzenie pliku html
 
 **Cel:** Stworzenie takiego samego widoku tabeli xlsx, w pliku html.
+
+![schemat](images/widok_html.png)
 
 
 
