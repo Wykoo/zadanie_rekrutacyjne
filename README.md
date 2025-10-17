@@ -49,7 +49,7 @@ W tym etapie sprawdzono strukturę oraz typy danych w tabelach źródłowych,
 aby zidentyfikować potencjalne niespójności (np. różne typy kolumn o tej samej nazwie).  
 Na tej podstawie zaplanowano późniejsze ujednolicenie danych w warstwie **staging**.
 
-
+**SQL:**
 ```sql
 SELECT 
     column_name,
@@ -58,9 +58,11 @@ FROM information_schema.columns
 WHERE table_name ='test_baza1'
 ORDER BY ordinal_position;
 ```
+
+**Wynik**
 ![schemat](images/typy_koloumn_tb1.png)
 
-
+**SQL:**
 ```sql
 SELECT 
     column_name,
@@ -70,24 +72,28 @@ WHERE table_name ='test_baza2'
 ORDER BY ordinal_position;
 ```
 
+**Wynik:**
 ![schemat](images/typy_kolumn_tb2.png)
 
-
+**SQL:**
 ```sql
 select *
 from public.test_baza1 tb1
 WHERE NULLIF(TRIM("NUMBER"), '') IS NOT NULL
 limit 10;
 ```
+
+**Wynik:**
 ![schemat](images/eksploracja_tb1.png)
 
-
+**SQL:**
 ```sql
 select *
 from public.test_baza2 tb2
 limit 10;
 ```
 
+**Wynik:**
 ![schemat](images/eksploracja_tb2.png)
 
 
@@ -102,7 +108,7 @@ W warstwie staging ujednolicono typy i formaty danych z tabel źródłowych,
 oczyszczając kolumny z błędnych wartości i różnic w nazwach. 
 Dzięki temu dalsze zapytania mogły działać na spójnych, standaryzowanych danych.
 
-
+**SQL:**
 ```sql
 create or replace view public.stg_test_baza1 as 
 	select
@@ -114,8 +120,10 @@ create or replace view public.stg_test_baza1 as
 	from public.test_baza1;
 ```
 
+**Wynik:**
 ![schemat](images/stg_test_baza1.png)
 
+**SQL:**
 ```sql
 create or replace view public.stg_test_baza2 as
 	select
@@ -125,6 +133,7 @@ create or replace view public.stg_test_baza2 as
 	from public.test_baza2;
 ```
 
+**Wynik:**
 ![schemat](images/stg_test_baza2.png)
 
 
@@ -138,7 +147,7 @@ Dane zostały oczyszczone, przekształcone i przygotowane do dalszych analiz. Zo
 **Cel:** Wybór aktywnych usług w segmentach small i soho.
 **Wynik:** tabela tmp.
 
-
+**SQL:**
 ```sql
 create table public.temp AS
 select
@@ -161,6 +170,7 @@ where
 	and stb1.segment IN ('small', 'soho');
 ```
 
+**Wynik:**
 ![schemat](images/table_temp.png)
 
 
@@ -170,6 +180,7 @@ where
 
 **Cel:** Podsumowanie liczby rekomendacji per plan (S, M, L, X) w odpowiedniej kolejności.
 
+**SQL:**
 ```sql
 with clean_plan as(
 	select
@@ -194,6 +205,7 @@ order by
 	end;
 ```
 
+**Wynik:**
 ![schemat](images/zadanie_2.png)
 
 
@@ -203,7 +215,7 @@ order by
 
 **Cel:** Określenie najczęściej występującej rekomendacji per ID, z priorytetem S < M < L < X
 
-
+**SQL:**
 ```sql
 with most_frequent as (
 	select
@@ -244,6 +256,7 @@ where ranking=1
 order by id;
 ```
 
+**Wynik:**
 ![schemat](images/zadanie_3.png)
 
 
@@ -254,7 +267,7 @@ order by id;
 **Cel:** agregacja numerów per ID w formacie:
 S: 5120000217, 546508046 | m: 577290614, 58172979 | X: 553705789
 
-
+**SQL:**
 ```sql
 WITH agg AS (
   SELECT
@@ -287,6 +300,7 @@ FROM agg
 ORDER BY id;
 ```
 
+**Wynik:**
 ![schemat](images/zadanie_4.png)
 
 ---
