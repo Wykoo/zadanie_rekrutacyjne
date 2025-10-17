@@ -56,7 +56,7 @@ FROM information_schema.columns
 WHERE table_name ='test_baza1'
 ORDER BY ordinal_position;
 ```
-![schemat](images/typy_kolumn_tb1.png)
+![schemat](images/typy_koloumn_tb1.png)
 
 ```sql
 SELECT 
