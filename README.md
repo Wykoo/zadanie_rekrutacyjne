@@ -6,6 +6,9 @@ W projekcie pokazano cały proces począwszy od analizy i czyszczeniu, aż po tw
 
 ---
 
+## Struktura repozytorium
+
+```
 zadanie_rekrutacyjne/
 │
 ├── Data/                      # Dane wejściowe
@@ -36,20 +39,14 @@ zadanie_rekrutacyjne/
 │   └── zadania.txt
 │
 └── README.md                  # Dokumentacja projektu
+```
 
 ---
 
 ## Etap analizy
 
 ### Sprawdzanie struktur i typów danych
-![schemat](images/typy_kolumn_tb1.png)
-![schemat](images/typy_kolumn_tb2.png)
-![schemat](images/eksploracja_tb1.png)
-![schemat](images/eksploracja_tb2.png)
 
-
-**Komentarz**
-Zidentyfikowane różnice typów między tabelami ('varchcar', 'int'), co wymaga ujednolicenia w warstwie staging
 
 ```sql
 SELECT 
@@ -59,6 +56,8 @@ FROM information_schema.columns
 WHERE table_name ='test_baza1'
 ORDER BY ordinal_position;
 ```
+![schemat](images/typy_kolumn_tb1.png)
+
 ```sql
 SELECT 
     column_name,
@@ -67,27 +66,32 @@ FROM information_schema.columns
 WHERE table_name ='test_baza2'
 ORDER BY ordinal_position;
 ```
+
+![schemat](images/typy_kolumn_tb2.png)
+
 ```sql
 select *
 from public.test_baza1 tb1
 WHERE NULLIF(TRIM("NUMBER"), '') IS NOT NULL
 limit 10;
 ```
+![schemat](images/eksploracja_tb1.png)
+
 ```sql
 select *
 from public.test_baza2 tb2
 limit 10;
 ```
 
+![schemat](images/eksploracja_tb2.png)
+
+**Komentarz**
+Zidentyfikowane różnice typów między tabelami ('varchcar', 'int'), co wymaga ujednolicenia w warstwie staging
+
 ---
 
 ### Tworzenie warstwy staging
 
-![schemat](images/stg_test_baza1.png)
-![schemat](images/stg_test_baza2.png)
-
-**Komentarz**
-Dane zostały oczyszczone, przekształcone i przygotowane do dalszych analiz. Został stworzony nowy widok, aby zachować spójność danych i łatwość analiz.
 
 ```sql
 create or replace view public.stg_test_baza1 as 
@@ -100,6 +104,8 @@ create or replace view public.stg_test_baza1 as
 	from public.test_baza1;
 ```
 
+![schemat](images/stg_test_baza1.png)
+
 ```sql
 create or replace view public.stg_test_baza2 as
 	select
@@ -109,6 +115,11 @@ create or replace view public.stg_test_baza2 as
 	from public.test_baza2;
 ```
 
+![schemat](images/stg_test_baza2.png)
+
+**Komentarz**
+Dane zostały oczyszczone, przekształcone i przygotowane do dalszych analiz. Został stworzony nowy widok, aby zachować spójność danych i łatwość analiz.
+
 ---
 
 ### Zadanie 1
@@ -116,7 +127,6 @@ create or replace view public.stg_test_baza2 as
 **Cel:** Wybór aktywnych usług w segmentach small i soho.
 **Wynik:** tabela tmp.
 
-![schemat](images/table_temp.png)
 
 ```sql
 create table public.temp AS
@@ -139,13 +149,14 @@ where
 	and stb1.end_dt < CURRENT_DATE + interval '90 day'
 	and stb1.segment IN ('small', 'soho');
 ```
+
+![schemat](images/table_temp.png)
+
 ---
 
 ### Zadanie 2
 
 **Cel:** Podsumowanie liczby rekomendacji per plan (S, M, L, X) w odpowiedniej kolejności.
-
-![schemat](images/zadanie_2.png)
 
 ```sql
 with clean_plan as(
@@ -171,13 +182,14 @@ order by
 	end;
 ```
 
+![schemat](images/zadanie_2.png)
+
 ---
 
 ### Zadanie 3
 
 **Cel:** Określenie najczęściej występującej rekomendacji per ID, z priorytetem S < M < L < X
 
-![schemat](images/zadanie_3.png)
 
 ```sql
 with most_frequent as (
@@ -219,6 +231,8 @@ where ranking=1
 order by id;
 ```
 
+![schemat](images/zadanie_3.png)
+
 ---
 
 ### Zadanie 4
@@ -226,7 +240,6 @@ order by id;
 **Cel:** agregacja numerów per ID w formacie:
 S: 5120000217, 546508046 | m: 577290614, 58172979 | X: 553705789
 
-![schemat](images/zadanie_4.png)
 
 ```sql
 WITH agg AS (
@@ -259,6 +272,8 @@ SELECT
 FROM agg
 ORDER BY id;
 ```
+
+![schemat](images/zadanie_4.png)
 
 ### Zadanie 5 - stworzenie pliku html
 
